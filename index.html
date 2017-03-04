@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head -->
+
+<head>
+    <meta charset = "utf-8">
+    <title>TL;DL</title>
+    <meta charset="UTF-8">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amiko" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+
+<!-- Body -->
+
+<body>
+
+    <div class = "title header animated fadeInUp" id="title-header">
+        <h1 class="home"> tl;dl </h1>
+    </div>
+
+    <div class = "title description animated fadeInUp" id="title-description">
+        <h3 class="home"> Another set of ears just for you. </h3>
+    </div>
+
+    <div class = "home buttons animated fadeIn" id="buttons">
+        <div class = "container">
+            <div class = "row">
+                <div class="col-md-3 col-md-offset-3">
+                    <button type="button" id="listen" class="btn btn-default btn-lg" onclick="startListening()">Listen.</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" id="import" class="btn btn-default btn-lg" disabled>Import.</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id = "listening">
+        <h1> Listening. </h1>
+        <div id = "bars">
+            <div class = "bar"></div>
+            <div class = "bar"></div>
+            <div class = "bar"></div>
+            <div class = "bar"></div>
+            <div class = "bar"></div>
+            <div class = "bar"></div>
+            <div class = "bar"></div>
+            <div class = "bar"></div>
+            <div class = "bar"></div>   
+            <div class = "bar"></div>
+        </div>
+         <img class = 'x' src="images/x.png" onclick="stopListening(initHeadline)">
+    </div>
+
+    <section class="loading cd-intro" id = "loading">
+        <h3 class="cd-headline clip main-text center">
+            <span class="cd-words-wrapper waiting">
+                <b class="is-visible">Summarizing...</b>
+                <b>Working...</b>
+                <b>Thinking...</b>
+            </span>
+        </h3>
+    </section>
+
+</body>
+
+    <script src="js/index.js"></script>
+    <script src="js/loading.js"></script> 
+
+</html>
