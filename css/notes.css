@@ -3,6 +3,10 @@
 	position: relative;
 }
 
+.btn:hover {
+	outline: none !important;
+}
+
 .row {
 	height: 100%;
 }
@@ -78,6 +82,46 @@
 	font-family: "Avenir Next" !important;
 	font-size: 12px;
 	padding-left: 2vw;
+}
+
+.center-translate {
+	display: none;
+	font-family: "Avenir Next" !important;
+	left: 35%;
+	padding-top: 3vh;
+	position: relative;
+	text-align: justify;
+}
+
+.translate-options {
+	position: relative;
+	top: 10vh;
+}
+
+.translate-header {
+	padding-bottom: 2vh;
+	padding-top: 12vh;
+}
+
+.translate-header-inline {
+	display: inline;
+	padding-bottom: 2vh;
+	padding-top: 12vh;
+}
+
+.translate-dropdown {
+	display: inline;
+	position: relative;
+}
+
+.go {
+	position: relative;
+	top: 4vh;
+}
+
+.checkImage {
+	width: 1vw;
+	height: auto;
 }
 
 .footnote {

@@ -22,6 +22,14 @@
 
     <script>
         window.onload = function () {
+
+            var selections = document.getElementsByClassName("selection");
+            for (var i = 0; i < selections.length; i++) {
+                selections[i].setAttribute("onclick", "changeText(this); displayText();");
+            }
+            
+            document.getElementsByClassName("translate")[0].setAttribute("onclick", "changeText(this); translateClicked();");
+
             checkForActiveTab();
         }
     </script>
@@ -36,21 +44,21 @@
         <div class = "row">
             <div class = "options col-md-2">
                 <div class = "sidebar-divide">
-                    <div class = "selection summary" id="active" onclick="changeText(this)">
+                    <div class = "selection summary" id="active">
                         <div class = "col-md-offset-2">
                             <img class = "sidebar-image" src="images/summary.png"> <h3 class = "sidebar-text"> Summary </h3>
                         </div>
                     </div>
                 </div>
                 <div class = "sidebar-divide">
-                    <div class = "selection full" id="inactive" onclick="changeText(this)">
+                    <div class = "selection full" id="inactive">
                         <div class = "col-md-offset-2">
                             <img class = "sidebar-image" src="images/full.png"> <h3 class = "sidebar-text"> Full Text </h3>
                         </div>
                     </div>
                 </div>
                 <div class = "sidebar-divide">
-                    <div class = "selection translate" id="inactive" onclick="changeText(this)">
+                    <div class = "selection translate" id="inactive">
                         <div class = "col-md-offset-2">
                             <img class = "sidebar-image" src="images/translate.png"> <h3 class = "sidebar-text"> Translation </h3>
                         </div>
@@ -76,6 +84,36 @@
                          <span style="color: #CC081F">•</span> Phasellus varius velit eu dapibus fermentum. Cras consequat lobortis vulputate. Aliquam vulputate augue eros, ac mollis 
                            lectus rhoncus et. Nullam condimentum, ipsum in suscipit scelerisque, turpis orci finibus tellus, ut pretium eros risus id tortor. Sed vel pharetra lacus. Maecenas ut metus at lorem sodales porttitor. Suspendisse laoreet elit eget condimentum semper. <br> <br>
                          <span style="color: #CC081F">•</span> Suspendisse ultricies porta mauris, quis malesuada nunc dapibus a. Pellentesque egestas quis dolor in porta. </h3>
+                </div>
+            </div>
+            <div class = "center-translate col-md-5">
+                <div class = "translate-options">
+                    <h1 class = "translate-header"> Translate </h1>
+                    <h1 class = "translate-header-inline"> From: </h1>
+                    <div class="translate-dropdown">
+                        <button type="button" class="btn btn-danger dropdown-toggle true" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Select a Language
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a id = "dropdown-option" href="#" onclick="changeLanguageSelection(this.innerHTML, true)">English</a></li>
+                            <li><a id = "dropdown-option" href="#" onclick="changeLanguageSelection(this.innerHTML, true)">Spanish</a></li>
+                            <li><a id = "dropdown-option" href="#" onclick="changeLanguageSelection(this.innerHTML, true)">Korean</a></li>
+                        </ul>
+                    </div>
+                    <h1 class = "translate-header-inline col-md-offset-2"> To: </h1>
+                    <div class="translate-dropdown">
+                        <button type="button" class="btn btn-danger dropdown-toggle false" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Select a Language
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a id = "dropdown-option" href="#" onclick="changeLanguageSelection(this.innerHTML, false)">English</a></li>
+                            <li><a id = "dropdown-option" href="#" onclick="changeLanguageSelection(this.innerHTML, false)">Spanish</a></li>
+                            <li><a id = "dropdown-option" href="#" onclick="changeLanguageSelection(this.innerHTML, false)">Korean</a></li>
+                        </ul>
+                    </div>
+                    <button type ="button" class="btn btn-danger go" onclick="displayText()"> <img src="images/check.png" class = "checkImage"> </button> 
                 </div>
             </div>
         </div>
