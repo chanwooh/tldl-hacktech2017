@@ -45,8 +45,8 @@
 	padding-bottom: 1.5vh;
 }
 
-.summary:hover {
-	background-color: #CC081F;
+.summmary:hover h3 {
+	color: #fff;
 }
 
 .full {
@@ -55,8 +55,8 @@
 	padding-bottom: 1.5vh;
 }
 
-.full:hover {
-	background-color: #CC081F;
+.full:hover h3 {
+	color: #fff;
 }
 
 .translate {
@@ -65,8 +65,8 @@
 	padding-bottom: 1.5vh;
 }
 
-.translate:hover {
-	background-color: #CC081F;
+.translate:hover h3 {
+	color: #fff;
 }
 
 .sidebar-image {
@@ -76,9 +76,19 @@
 }
 
 .sidebar-text {
-	color: #e2e2e2;
+	color: #d2d2d2;
 	display: inline;
 	font-family: "Avenir Next" !important;
 	font-size: 12px;
 	padding-left: 2vw;
+}
+
+.footnote {
+	text-align: center;
+	color: #727272;
+	font-family: "Avenir Next" !important;
+}
+
+.footnote p {
+	display: inline;
 }
