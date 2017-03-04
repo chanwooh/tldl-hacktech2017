@@ -1,5 +1,6 @@
 #notes {
 	height: 100vh;
+	position: relative;
 }
 
 .row {
@@ -8,11 +9,8 @@
 
 .options {
 	background-color: #26262B;
-
 	height: 100%;
-    width: 0;
     position: fixed;
-    z-index: 1;
     top: 0;
     left: 0;
 }
@@ -24,14 +22,14 @@
 .center-notes {
 	display: inline-block;
 	font-family: "Avenir Next" !important;
-	left: 22%;
+	left: 35%;
 	padding-top: 3vh;
 	position: relative;
 	text-align: justify;
 }
 
 .main-notes h3 {
-	font-size: 20px;
+	font-size: 18px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: 4vh;
@@ -39,13 +37,12 @@
 }
 
 .summary {
-	background-color: #CC081F;
 	cursor: pointer;
 	padding-top: 1.5vh;
 	padding-bottom: 1.5vh;
 }
 
-.summmary:hover h3 {
+.summary:hover h3 {
 	color: #fff;
 }
 
@@ -91,4 +88,9 @@
 
 .footnote p {
 	display: inline;
+	font-size: 12px;
+}
+
+a.link {
+	color: #727272;
 }

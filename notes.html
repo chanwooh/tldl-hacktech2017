@@ -10,15 +10,21 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/notes.css">
     <link rel="icon" href="images/logo.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amiko" rel="stylesheet">
+    <link rel="stylesheet" href="css/notes.css">
 
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script>
+        window.onload = function () {
+            checkForActiveTab();
+        }
+    </script>
 
 </head>
 
@@ -30,21 +36,21 @@
         <div class = "row">
             <div class = "options col-md-2">
                 <div class = "sidebar-divide">
-                    <div class = "summary">
+                    <div class = "selection summary" id="active" onclick="changeText(this)">
                         <div class = "col-md-offset-2">
                             <img class = "sidebar-image" src="images/summary.png"> <h3 class = "sidebar-text"> Summary </h3>
                         </div>
                     </div>
                 </div>
                 <div class = "sidebar-divide">
-                    <div class = "full">
+                    <div class = "selection full" id="inactive" onclick="changeText(this)">
                         <div class = "col-md-offset-2">
                             <img class = "sidebar-image" src="images/full.png"> <h3 class = "sidebar-text"> Full Text </h3>
                         </div>
                     </div>
                 </div>
                 <div class = "sidebar-divide">
-                    <div class = "translate">
+                    <div class = "selection translate" id="inactive" onclick="changeText(this)">
                         <div class = "col-md-offset-2">
                             <img class = "sidebar-image" src="images/translate.png"> <h3 class = "sidebar-text"> Translation </h3>
                         </div>
@@ -53,7 +59,7 @@
                 <div class = "sidebar-footnote">
                     <div class ="col-md-offset-2">
                         <div class = "footnote" style="position: absolute; bottom: 1vh;">
-                            <p> UI inspired by Bear </p> <span class ="glyphicon glyphicon-heart"></span>
+                            <p> UI inspired by <a class = "link" href="http://www.bear-writer.com/"> Bear</a></p> <span class ="glyphicon glyphicon-heart"></span>
                         </div>
                     </div>
                 </div>
@@ -61,11 +67,15 @@
             <div class = "center-notes col-md-5">
                 <h1> Sample Text. </h1>
                 <div class = "main-notes">
-                    <h3> • Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dignissim risus tempus metus pellentesque venenatis.
+                    <h3> <span style="color: #CC081F">•</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dignissim risus 
+                           tempus metus pellentesque venenatis.
                            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; <br> <br>
-                         • Phasellus varius velit eu dapibus fermentum. Cras consequat lobortis vulputate. Aliquam vulputate augue eros, ac mollis 
+                         <span style="color: #CC081F">•</span> Phasellus varius velit eu dapibus fermentum. Cras consequat lobortis vulputate. Aliquam vulputate augue eros, ac mollis 
                            lectus rhoncus et. Nullam condimentum, ipsum in suscipit scelerisque, turpis orci finibus tellus, ut pretium eros risus id tortor. Sed vel pharetra lacus. Maecenas ut metus at lorem sodales porttitor. Suspendisse laoreet elit eget condimentum semper. <br> <br>
-                         • Suspendisse ultricies porta mauris, quis malesuada nunc dapibus a. Pellentesque egestas quis dolor in porta. </h3>
+                         <span style="color: #CC081F">•</span> Suspendisse ultricies porta mauris, quis malesuada nunc dapibus a. Pellentesque egestas quis dolor in porta. <br> <br>
+                         <span style="color: #CC081F">•</span> Phasellus varius velit eu dapibus fermentum. Cras consequat lobortis vulputate. Aliquam vulputate augue eros, ac mollis 
+                           lectus rhoncus et. Nullam condimentum, ipsum in suscipit scelerisque, turpis orci finibus tellus, ut pretium eros risus id tortor. Sed vel pharetra lacus. Maecenas ut metus at lorem sodales porttitor. Suspendisse laoreet elit eget condimentum semper. <br> <br>
+                         <span style="color: #CC081F">•</span> Suspendisse ultricies porta mauris, quis malesuada nunc dapibus a. Pellentesque egestas quis dolor in porta. </h3>
                 </div>
             </div>
         </div>
@@ -73,6 +83,6 @@
 
 </body>
 
-    <script src="js/index.js"></script>
+    <script src="js/notes.js"></script>
 
 </html>
