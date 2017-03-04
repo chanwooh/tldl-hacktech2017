@@ -527,7 +527,7 @@ xloading-bar
   bottom: 0;
   height: 3px;
   width: 0;
-  background: #0096a7;
+  background: #CC081F;
   z-index: 2;
   -webkit-transition: width 0.3s -0.1s;
   -moz-transition: width 0.3s -0.1s;
@@ -535,9 +535,9 @@ xloading-bar
 }
 .cd-headline.loading-bar .cd-words-wrapper.is-loading::after {
   width: 100%;
-  -webkit-transition: width 3s;
-  -moz-transition: width 3s;
-  transition: width 3s;
+  -webkit-transition: width 2s;
+  -moz-transition: width 2s;
+  transition: width 2s;
 }
 .cd-headline.loading-bar b {
   top: .2em;

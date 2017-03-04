@@ -23,8 +23,10 @@
 	width: 10em;
 }
 
-button:focus {
+.btn-enabled:hover {
 	outline: none !important;
+	background-color: #CC081F;
+	color: #e2e2e2;
 }
 
 #import {
@@ -51,7 +53,7 @@ button:focus {
 }
 
 .bar {
-    background: #000000;
+    background: #CC081F;
     bottom: 1px;
     height: 3px;
     position: absolute;

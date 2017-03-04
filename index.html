@@ -9,12 +9,12 @@
     <meta charset="UTF-8">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amiko" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
 
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -38,7 +38,7 @@
         <div class = "container">
             <div class = "row">
                 <div class="col-md-3 col-md-offset-3">
-                    <button type="button" id="listen" class="btn btn-default btn-lg" onclick="startListening()">Listen.</button>
+                    <button type="button" id="listen" class="btn btn-default btn-lg btn-enabled" onclick="startListening()">Listen.</button>
                 </div>
                 <div class="col-md-3">
                     <button type="button" id="import" class="btn btn-default btn-lg" disabled>Import.</button>
@@ -65,7 +65,7 @@
     </div>
 
     <section class="loading cd-intro" id = "loading">
-        <h3 class="cd-headline clip main-text center">
+        <h3 class="cd-headline loading-bar main-text center">
             <span class="cd-words-wrapper waiting">
                 <b class="is-visible">Summarizing...</b>
                 <b>Working...</b>

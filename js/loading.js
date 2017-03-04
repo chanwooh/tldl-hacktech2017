@@ -2,8 +2,8 @@
 	//set animation timing
 	var animationDelay = 2500,
 		//loading bar effect
-		barAnimationDelay = 3800,
-		barWaiting = barAnimationDelay - 3000, //3000 is the duration of the transition on the loading bar - set in the scss/css file
+		barAnimationDelay = 2800,
+		barWaiting = barAnimationDelay - 2000, // 2000 is the duration of the transition on the loading bar - set in the scss/css file
 		//letters effect
 		lettersDelay = 50,
 		//type effect
@@ -12,7 +12,8 @@
 		typeAnimationDelay = selectionDuration + 800,
 		//clip effect 
 		revealDuration = 600,
-		revealAnimationDelay = 1500;
+		revealAnimationDelay = 1500,
+		counter = 0;
 	
 
 	function initHeadline() {
@@ -92,9 +93,13 @@
 		} else if ($word.parents('.cd-headline').hasClass('loading-bar')){
 			$word.parents('.cd-words-wrapper').removeClass('is-loading');
 			switchWord($word, nextWord);
-			setTimeout(function(){ hideWord(nextWord) }, barAnimationDelay);
-			setTimeout(function(){ $word.parents('.cd-words-wrapper').addClass('is-loading') }, barWaiting);
-
+			if (counter != 2) {
+				setTimeout(function(){ hideWord(nextWord) }, barAnimationDelay);
+				setTimeout(function(){ $word.parents('.cd-words-wrapper').addClass('is-loading') }, barWaiting);
+				counter++;
+			} else {
+				endAnimation();
+			}
 		} else {
 			switchWord($word, nextWord);
 			setTimeout(function(){ hideWord(nextWord) }, animationDelay);
@@ -102,6 +107,9 @@
 	}
 
 	function showWord($word, $duration) {
+
+		counter++;
+
 		if($word.parents('.cd-headline').hasClass('type')) {
 			showLetter($word.find('i').eq(0), $word, false, $duration);
 			$word.addClass('is-visible').removeClass('is-hidden');
@@ -150,4 +158,19 @@
 	function switchWord($oldWord, $newWord) {
 		$oldWord.removeClass('is-visible').addClass('is-hidden');
 		$newWord.removeClass('is-hidden').addClass('is-visible');
+	}
+
+	function endAnimation() {
+		var loading = document.getElementById("loading");
+		loading.setAttribute('class', 'animated fadeOut');
+
+		setTimeout(displayNone(loading), 1000);
+		
+	}
+
+	function displayNone(loading) {
+		loading.style.display = "none";
+
+		window.open("notes.html","_self");
+		setTimeout(window.close, 50);
 	}
