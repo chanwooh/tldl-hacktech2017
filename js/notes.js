@@ -1,3 +1,4 @@
+
 function changeText(clickedElement) {
 	var selections = document.getElementsByClassName("selection");
 
@@ -44,4 +45,8 @@ function displayText() {
 
 	var translate = document.getElementsByClassName("center-translate");
 	translate[0].style.display = "none";
+}
+
+function populateNotes() {
+	document.getElementById("text-area").innerHTML = localStorage.getItem("summary");
 }

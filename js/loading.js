@@ -93,13 +93,8 @@
 		} else if ($word.parents('.cd-headline').hasClass('loading-bar')){
 			$word.parents('.cd-words-wrapper').removeClass('is-loading');
 			switchWord($word, nextWord);
-			if (counter != 2) {
 				setTimeout(function(){ hideWord(nextWord) }, barAnimationDelay);
-				setTimeout(function(){ $word.parents('.cd-words-wrapper').addClass('is-loading') }, barWaiting);
-				counter++;
-			} else {
-				endAnimation();
-			}
+				setTimeout(function(){ $word.parents('.cd-words-wrapper').addClass('is-loading') }, barWaiting);			
 		} else {
 			switchWord($word, nextWord);
 			setTimeout(function(){ hideWord(nextWord) }, animationDelay);
@@ -160,17 +155,17 @@
 		$newWord.removeClass('is-hidden').addClass('is-visible');
 	}
 
-	function endAnimation() {
+	function endAnimation(summary) {
 		var loading = document.getElementById("loading");
 		loading.setAttribute('class', 'animated fadeOut');
 
-		setTimeout(displayNone(loading), 1000);
+		setTimeout(displayNone(loading, summary), 1000);
 		
 	}
 
-	function displayNone(loading) {
+	function displayNone(loading, summary) {
 		loading.style.display = "none";
 
-		window.open("notes.html","_self");
-		setTimeout(window.close, 50);
+		localStorage.setItem("summary", summary);
+		window.open("notes.html", "_self");
 	}

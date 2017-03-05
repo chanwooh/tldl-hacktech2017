@@ -13,7 +13,7 @@ function startListening() {
 
 }
 
-function stopListening(callbackFunction) {
+function stopListening(callbackFunction, wav_text) {
 
 	// Fade out listening
 	var listen = document.getElementById("listening");
@@ -25,4 +25,20 @@ function stopListening(callbackFunction) {
 	loading.style.display = "block";
 
 	callbackFunction();
+
+	$.ajax({
+	    type : 'POST',
+	    url: 'http://localhost:8080/summary',
+	    data: { raw_text: wav_text },
+	    dataType: 'jsonp',
+	    success: function(data) {
+	    	localStorage.setItem("full", wav_text);
+	      	endAnimation(data);
+	    },
+	    error: function(err) {
+	      	console.log("Error");
+	    }
+  	});
 }
+
+

@@ -27,7 +27,7 @@
 	display: inline-block;
 	font-family: "Avenir Next" !important;
 	left: 35%;
-	padding-top: 3vh;
+	padding-top: 7vh;
 	position: relative;
 	text-align: justify;
 }
@@ -82,6 +82,14 @@
 	font-family: "Avenir Next" !important;
 	font-size: 12px;
 	padding-left: 2vw;
+}
+
+.notes-title {
+	outline: none !important;
+}
+
+#text-area {
+	outline: none !important;
 }
 
 .center-translate {
