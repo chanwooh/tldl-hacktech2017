@@ -47,6 +47,30 @@ function displayText() {
 	translate[0].style.display = "none";
 }
 
+function translateText(text, target) {
+	$.ajax({
+	    type : 'POST',
+	    url: 'http://localhost:8080/translate',
+	    data: { 
+	    	raw_text: text,
+	    	language: target
+	    },
+	    dataType: 'jsonp',
+	    success: function(data) {
+	      	localStorage.setItem("translation", data);
+	      	populateTranslatedNotes();
+	    },
+	    error: function(err) {
+	      	console.log("Error");
+	    }
+  	});
+}
+
 function populateNotes() {
 	document.getElementById("text-area").innerHTML = localStorage.getItem("summary");
+}
+
+function populateTranslatedNotes() {
+	document.getElementById("text-area").innerHTML = localStorage.getItem("translation");
+	displayText();
 }

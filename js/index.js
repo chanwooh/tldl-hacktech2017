@@ -32,8 +32,9 @@ function stopListening(callbackFunction, wav_text) {
 	    data: { raw_text: wav_text },
 	    dataType: 'jsonp',
 	    success: function(data) {
+	    	localStorage.setItem("summary", data);
 	    	localStorage.setItem("full", wav_text);
-	      	endAnimation(data);
+	      	endAnimation();
 	    },
 	    error: function(err) {
 	      	console.log("Error");
