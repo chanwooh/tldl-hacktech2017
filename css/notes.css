@@ -96,7 +96,7 @@
 	display: none;
 	font-family: "Avenir Next" !important;
 	left: 35%;
-	padding-top: 3vh;
+	padding-top: 10vh;
 	position: relative;
 	text-align: justify;
 }
@@ -124,7 +124,8 @@
 
 .go {
 	position: relative;
-	top: 4vh;
+	top: 7vh;
+	right: 25.5vw;
 }
 
 .checkImage {

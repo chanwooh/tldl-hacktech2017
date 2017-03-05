@@ -23,11 +23,8 @@
     <script>
         window.onload = function () {
 
-            var selections = document.getElementsByClassName("selection");
-            for (var i = 0; i < selections.length; i++) {
-                selections[i].setAttribute("onclick", "changeText(this); displayText();");
-            }
-            
+            document.getElementsByClassName("summary")[0].setAttribute("onclick", "changeText(this); summaryClicked();");
+            document.getElementsByClassName("full")[0].setAttribute("onclick", "changeText(this); fullClicked()");
             document.getElementsByClassName("translate")[0].setAttribute("onclick", "changeText(this); translateClicked();");
 
             checkForActiveTab();
@@ -90,32 +87,18 @@
             </div>
             <div class = "center-translate col-md-5">
                 <div class = "translate-options">
-                    <h1 class = "translate-header"> Translate </h1>
-                    <h1 class = "translate-header-inline"> From: </h1>
+                    <h1 class = "translate-header-inline"> Translate to: </h1>
                     <div class="translate-dropdown">
-                        <button type="button" class="btn btn-danger dropdown-toggle true" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button type="button tr-button" value="Select a Language" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Select a Language
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a id = "dropdown-option" href="#" onclick="changeLanguageSelection(this.innerHTML, true)">English</a></li>
-                            <li><a id = "dropdown-option" href="#" onclick="changeLanguageSelection(this.innerHTML, true)">Spanish</a></li>
-                            <li><a id = "dropdown-option" href="#" onclick="changeLanguageSelection(this.innerHTML, true)">Korean</a></li>
+                            <li><a id = "dropdown-option" href="#" onclick="changeLanguageSelection(this.innerHTML)">English</a></li>
+                            <li><a id = "dropdown-option" href="#" onclick="changeLanguageSelection(this.innerHTML)">Spanish</a></li>
+                            <li><a id = "dropdown-option" href="#" onclick="changeLanguageSelection(this.innerHTML)">Korean</a></li>
                         </ul>
                     </div>
-                    <h1 class = "translate-header-inline col-md-offset-2"> To: </h1>
-                    <div class="translate-dropdown">
-                        <button type="button" class="btn btn-danger dropdown-toggle false" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Select a Language
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a id = "dropdown-option" href="#" onclick="changeLanguageSelection(this.innerHTML, false)">English</a></li>
-                            <li><a id = "dropdown-option" href="#" onclick="changeLanguageSelection(this.innerHTML, false)">Spanish</a></li>
-                            <li><a id = "dropdown-option" href="#" onclick="changeLanguageSelection(this.innerHTML, false)">Korean</a></li>
-                        </ul>
-                    </div>
-                    <button type ="button" class="btn btn-danger go" onclick="translateText('Its first three articles entrench the doctrine of the separation of powers, whereby the federal government is divided into three branches: the legislative, consisting of the bicameral Congress; Articles Four, Five and Six entrench concepts of federalism, describing the rights and responsibilities of state governments and of the states in relationship to the federal government.', 'ko')"> <img src="images/check.png" class = "checkImage"> </button> 
                 </div>
             </div>
         </div>

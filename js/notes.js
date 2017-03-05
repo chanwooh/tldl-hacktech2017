@@ -1,4 +1,9 @@
 
+var map = new Object();
+map['English'] = 'en';
+map['Spanish'] = 'es';
+map['Korean'] = 'ko';
+
 function changeText(clickedElement) {
 	var selections = document.getElementsByClassName("selection");
 
@@ -21,6 +26,16 @@ function checkForActiveTab() {
 	}
 }
 
+function summaryClicked() {
+	document.getElementById("text-area").innerHTML = localStorage.getItem("summary");
+	localStorage.setItem("current", localStorage.getItem("summary"));
+}
+
+function fullClicked() {
+	document.getElementById("text-area").innerHTML = localStorage.getItem("full");
+	localStorage.setItem("current", localStorage.getItem("full"));
+}
+
 function translateClicked() {
 	var notes = document.getElementsByClassName("center-notes");
 	notes[0].style.display = "none";
@@ -29,14 +44,14 @@ function translateClicked() {
 	translate[0].style.display = "inline-block";
 }
 
-function changeLanguageSelection(selectedElement, dropdownButton) {
-	if (dropdownButton) {
-		var button = document.getElementsByClassName("btn btn-danger dropdown-toggle true");
-		button[0].innerHTML = selectedElement + ' <span class="caret"></span>';
-	} else {
-		var button = document.getElementsByClassName("btn btn-danger dropdown-toggle false");
-		button[0].innerHTML = selectedElement + ' <span class="caret"></span>';
-	}
+function changeLanguageSelection(selectedElement) {
+
+	var button = document.getElementsByClassName("btn btn-danger dropdown-toggle");
+	button[0].innerHTML = selectedElement + ' <span class="caret"></span>';
+	button[0].value = selectedElement;
+
+	localStorage.setItem("toLanguage", map[selectedElement]);
+	translateText();
 }
 
 function displayText() {
@@ -47,7 +62,11 @@ function displayText() {
 	translate[0].style.display = "none";
 }
 
-function translateText(text, target) {
+function translateText() {
+
+	var text = localStorage.getItem("current");
+	var target = localStorage.getItem("toLanguage");
+
 	$.ajax({
 	    type : 'POST',
 	    url: 'http://localhost:8080/translate',
