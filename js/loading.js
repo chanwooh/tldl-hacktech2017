@@ -15,7 +15,7 @@
 		revealAnimationDelay = 1500,
 		counter = 0;
 	
-
+	// Starts the loading animation
 	function initHeadline() {
 		//insert <i> element for each letter of a changing word
 		singleLetters($('.cd-headline.letters').find('b'));
@@ -155,6 +155,7 @@
 		$newWord.removeClass('is-hidden').addClass('is-visible');
 	}
 
+	// Called when the summary has been received. Ends the loading animation and gets ready to switch to notes.html
 	function endAnimation() {
 		var loading = document.getElementById("loading");
 		loading.setAttribute('class', 'animated fadeOut');
@@ -163,6 +164,7 @@
 		
 	}
 
+	// Switches to notes.html
 	function displayNone(loading) {
 		loading.style.display = "none";
 

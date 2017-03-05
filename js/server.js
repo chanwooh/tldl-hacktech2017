@@ -1,3 +1,4 @@
+// Express.js
 const express = require('express');
 const app = express();
 const port = 8080;
@@ -13,10 +14,11 @@ const translateClient = Translate({
   projectId: projectId
 });
 
+// Probably not necessary
 app.get('/', (request, response) => {  
-    //response.send(response.withHeader('Access-Control-Allow-Origin', 'http://localhost:8080'));
 });
 
+// Route to summarize the text
 app.get('/summary', (req, res) => {
 
   var unirest = require('unirest');
@@ -32,6 +34,7 @@ app.get('/summary', (req, res) => {
 
 });
 
+// Route to translate the text
 app.get('/translate', (req, res) => {
 
   const text = req.query.raw_text;
@@ -46,6 +49,7 @@ app.get('/translate', (req, res) => {
 
 });
 
+// Probably not necessary, but may need to avoid Access-Control Error
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
@@ -65,6 +69,7 @@ app.use(function (req, res, next) {
     next();
 });
 
+// Node.js listening to the port number
 app.listen(port, (err) => {  
     if (err) {
       return console.log('something bad happened', err)
