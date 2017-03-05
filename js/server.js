@@ -2,22 +2,47 @@ const express = require('express');
 const app = express();
 const port = 8080;
 
+// Imports the Google Cloud client library
+const Translate = require('@google-cloud/translate');
+
+// Your Google Cloud Platform project ID
+const projectId = 'hardy-thinker-138823';
+
+// Instantiates a client
+const translateClient = Translate({
+  projectId: projectId
+});
+
 app.get('/', (request, response) => {  
-  	//response.send(response.withHeader('Access-Control-Allow-Origin', 'http://localhost:8080'));
+    //response.send(response.withHeader('Access-Control-Allow-Origin', 'http://localhost:8080'));
 });
 
 app.get('/summary', (req, res) => {
 
-	var unirest = require('unirest');
+  var unirest = require('unirest');
 
-	unirest.post("https://cotomax-summarizer-text-v1.p.mashape.com/summarizer")
-		.header("X-Mashape-Key", "tYe19sDdFDmshbS4t7MTT2QZsJJMp1bwCrqjsnW2TAuD70gynW")
-		.header("Content-Type", "application/json")
-		.header("Accept", "application/json")
-		.send({"Percent":"30","Language":"en","Text":req.query.raw_text})
-		.end(function (result) {
-		  	res.jsonp(result.body);
-		});
+  unirest.post("https://cotomax-summarizer-text-v1.p.mashape.com/summarizer")
+    .header("X-Mashape-Key", "tYe19sDdFDmshbS4t7MTT2QZsJJMp1bwCrqjsnW2TAuD70gynW")
+    .header("Content-Type", "application/json")
+    .header("Accept", "application/json")
+    .send({"Percent":"30","Language":"en","Text":req.query.raw_text})
+    .end(function (result) {
+        res.jsonp(result.body);
+    });
+
+});
+
+app.get('/translate', (req, res) => {
+
+  const text = req.query.raw_text;
+  const target = req.query.language;
+
+  // Translates some text into "target"
+  translateClient.translate(text, target).then((results) => {
+    
+    res.jsonp(results[0]);
+                
+  });
 
 });
 
@@ -41,9 +66,9 @@ app.use(function (req, res, next) {
 });
 
 app.listen(port, (err) => {  
-  	if (err) {
-    	return console.log('something bad happened', err)
-  	}
+    if (err) {
+      return console.log('something bad happened', err)
+    }
 
-  	console.log(`server is listening on ${port}`)
+    console.log(`server is listening on ${port}`)
 });

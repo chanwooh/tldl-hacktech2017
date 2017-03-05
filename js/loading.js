@@ -155,17 +155,16 @@
 		$newWord.removeClass('is-hidden').addClass('is-visible');
 	}
 
-	function endAnimation(summary) {
+	function endAnimation() {
 		var loading = document.getElementById("loading");
 		loading.setAttribute('class', 'animated fadeOut');
 
-		setTimeout(displayNone(loading, summary), 1000);
+		setTimeout(displayNone(loading), 1000);
 		
 	}
 
-	function displayNone(loading, summary) {
+	function displayNone(loading) {
 		loading.style.display = "none";
 
-		localStorage.setItem("summary", summary);
 		window.open("notes.html", "_self");
 	}
